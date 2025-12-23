@@ -6,23 +6,16 @@ export default defineNuxtConfig({
     '@nuxt/hints',
     '@nuxt/image',
     '@nuxt/scripts',
-    '@nuxt/test-utils'
+    '@nuxt/test-utils',
+    '@nuxtjs/i18n'
   ],
-
-  devtools: {
-    enabled: true
-  },
 
   css: ['~/assets/css/main.css'],
 
-  routeRules: {
-    '/': { prerender: true }
-  },
-
-  compatibilityDate: '2025-01-15',
-
   nitro: {
-    preset: 'netlify-edge'
+    prerender: {
+      crawlLinks: true
+    }
   },
 
   eslint: {
@@ -33,5 +26,35 @@ export default defineNuxtConfig({
         quotes: 'single'
       }
     }
+  },
+
+  i18n: {
+    strategy: 'prefix',
+    langDir: 'locales/',
+    locales: [
+      {
+        code: 'en',
+        name: 'English',
+        file: 'en.json'
+      },
+      {
+        code: 'ms',
+        name: 'Melayu',
+        file: 'ms.json'
+      },
+      {
+        code: 'id',
+        name: 'Bahasa Indonesia',
+        file: 'id.json'
+      }
+    ],
+    defaultLocale: 'en'
+  },
+
+  image: { quality: 50, format: ['webp'] },
+
+  compatibilityDate: '2025-01-15',
+  devtools: {
+    enabled: true
   }
 })
