@@ -20,5 +20,5 @@
 }
 
 body {
-  @apply grid;
+  @apply flex justify-center space-y-2 bg-accented;
 }

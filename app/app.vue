@@ -27,9 +27,8 @@ useHead({
   }
 })
 
-const title = 'Nuxt Starter Template'
-const description =
-  'A production-ready starter template powered by Nuxt UI. Build beautiful, accessible, and performant applications in minutes, not hours.'
+const title = 'eons adrift'
+const description = '..how can you listen all night long?'
 
 useSeoMeta({
   title,
@@ -53,7 +52,7 @@ const navigationItems = computed<NavigationMenuItem[]>(() => [
 <template>
   <UApp :locale="uiLocale">
     <NuxtImg
-      class="absolute inset-0 min-w-full min-h-64 max-h-64 object-cover"
+      class="absolute inset-0 max-h-96 min-h-64 min-w-full object-cover"
       src="Header.webp"
       format="webp"
       quality="100"
@@ -63,31 +62,39 @@ const navigationItems = computed<NavigationMenuItem[]>(() => [
       aria-hidden="true"
     />
 
-    <UHeader mode="drawer" title="Wanderer" class="sm:mx-2 rounded-b-xl">
+    <UHeader
+      mode="drawer"
+      title="Wanderer"
+      class="max-w-6xl rounded-b-xl border sm:mx-2"
+    >
       <template #title>
         <NuxtLink :to="localePath('/')">
-          <AppLogo class="w-auto h-6 shrink-0" />
+          <AppLogo class="h-6 w-auto shrink-0" />
         </NuxtLink>
 
         <!-- <TemplateMenu /> -->
       </template>
 
       <template #right>
-        <UColorModeButton />
         <ULocaleSelect
+          variant="ghost"
+          :label-key="'code'"
           :model-value="locale"
           :locales="Object.values(supportedLocales)"
-          @update:model-value="((value: 'en' | 'ms' | 'id') => setLocale(value))"
+          @update:model-value="
+            (value: string) => setLocale(value as 'en' | 'ms' | 'id')
+          "
         />
+        <UColorModeButton />
 
-        <UButton
+        <!-- <UButton
           to="https://github.com/nuxt-ui-templates/starter"
           target="_blank"
           icon="i-simple-icons-github"
           aria-label="GitHub"
           color="neutral"
           variant="ghost"
-        />
+        /> -->
       </template>
 
       <template #body>
@@ -99,16 +106,14 @@ const navigationItems = computed<NavigationMenuItem[]>(() => [
       </template>
     </UHeader>
 
-    <UMain>
+    <UMain class="max-w-6xl sm:mx-2">
       <NuxtPage />
     </UMain>
 
-    <USeparator icon="i-simple-icons-nuxtdotjs" />
-
-    <UFooter>
+    <UFooter class="max-w-6xl sm:mx-2">
       <template #left>
-        <p class="text-sm text-muted">
-          Built with Nuxt UI • © {{ new Date().getFullYear() }}
+        <p class="text-muted text-sm">
+          &copy; {{ new Date().getFullYear() }} &bull; Axel
         </p>
       </template>
 
