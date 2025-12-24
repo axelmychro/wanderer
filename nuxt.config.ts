@@ -9,8 +9,13 @@ export default defineNuxtConfig({
     '@nuxt/test-utils',
     '@nuxtjs/i18n'
   ],
+  devtools: {
+    enabled: true
+  },
 
   css: ['~/assets/css/main.css'],
+
+  compatibilityDate: '2025-01-15',
 
   nitro: {
     prerender: {
@@ -52,9 +57,4 @@ export default defineNuxtConfig({
   },
 
   image: { quality: 50, format: ['webp'] },
-
-  compatibilityDate: '2025-01-15',
-  devtools: {
-    enabled: true
-  }
 })
