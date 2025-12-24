@@ -1,17 +1,16 @@
 <template>
-  <div class="flex items-center gap-2">
+  <div class="font-display flex items-center gap-2 text-xs sm:text-base">
     <NuxtImg
-      src="Wanderer.png"
-      format="webp"
-      quality="100"
-      width="auto"
-      height="256"
+      class="max-h-6 min-h-6 max-w-6 min-w-6"
       alt=""
-      role="none"
-      class="max-h-9 max-w-8 rounded-xs"
+      src="logo.webp"
+      quality="100"
+      format="webp"
+      width="256"
+      height="256"
     />
-    <h1 class="font-display text-4xl leading-none capitalize not-sm:hidden">
-      Eons Adrift
-    </h1>
+    eons
+    <br aria-hidden="true" class="sm:hidden" />
+    adrift
   </div>
 </template>
