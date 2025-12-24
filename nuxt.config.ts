@@ -17,12 +17,6 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2025-01-15',
 
-  nitro: {
-    prerender: {
-      crawlLinks: true
-    }
-  },
-
   eslint: {
     config: {
       stylistic: {
@@ -56,5 +50,5 @@ export default defineNuxtConfig({
     defaultLocale: 'en'
   },
 
-  image: { quality: 50, format: ['webp'] },
+  image: { quality: 50, format: ['webp'] }
 })
