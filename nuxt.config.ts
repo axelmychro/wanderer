@@ -21,6 +21,12 @@ export default defineNuxtConfig({
 
   compatibilityDate: '2025-01-15',
 
+  build: {
+    transpile: ['@nuxt/ui']
+  },
+
+  ssr: true,
+
   eslint: {
     config: {
       stylistic: {
