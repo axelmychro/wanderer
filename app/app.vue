@@ -69,7 +69,7 @@
 <template>
   <UApp :locale="uiLocale" :toaster="{ position: 'top-center' }">
     <div
-      class="absolute inset-0 -z-10 max-h-96 min-h-64 min-w-full bg-[url('header.webp')] bg-cover bg-center"
+      class="absolute inset-0 -z-10 max-h-96 min-h-64 min-w-full bg-[url('/header.webp')] bg-cover bg-center"
       aria-hidden="true"
     />
 
