@@ -32,9 +32,5 @@
 }
 
 body {
-  @apply bg-accented flex size-full min-w-full justify-center space-y-2;
-}
-
-body main {
-  @apply bg-sky-500!;
+  @apply bg-accented;
 }

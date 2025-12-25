@@ -1,3 +1,3 @@
 <template>
-  <h2>Hello world!</h2>
+  <UPageSection title="yo"/>
 </template>

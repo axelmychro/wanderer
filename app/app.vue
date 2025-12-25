@@ -1,8 +1,10 @@
 <script setup lang="ts">
+  import { icons } from '@iconify-json/lucide/index.js'
   import type { NavigationMenuItem } from '@nuxt/ui'
   import * as locales from '@nuxt/ui/locale'
 
   const { locale, setLocale } = useI18n()
+  const colorMode = useColorMode()
 
   const supportedLocales = {
     en: locales.en,
@@ -48,16 +50,42 @@
       label: 'Home'
     }
   ])
+
+  const localeLabel = computed(() => {
+    const currentLocaleCode = locale.value.toUpperCase()
+    return `Select language (current: ${currentLocaleCode})`
+  })
+
+  const themeLabel = computed(() => {
+    if (colorMode.preference === 'dark') {
+      return 'Switch to light mode'
+    } else if (colorMode.preference === 'light') {
+      return 'Switch to dark mode'
+    }
+    return 'Toggle color mode'
+  })
 </script>
 
 <template>
   <UApp :locale="uiLocale" :toaster="{ position: 'top-center' }">
-    <UPageBody>
-      <UPageHeader>
+    <div
+      class="absolute inset-0 -z-10 max-h-96 min-h-64 min-w-full bg-[url('header.webp')] bg-cover bg-center"
+      aria-hidden="true"
+    />
+
+    <UPage :ui="{ root: 'sm:mx-4' }">
+      <UPageHeader
+        class="mb-32 lg:mb-64"
+        :ui="{
+          root: 'flex justify-center border-none py-0',
+          container: 'w-full max-w-6xl'
+        }"
+      >
         <UHeader
           mode="drawer"
-          class="max-w-6xl rounded-b-xl border sm:mx-2"
-          :ui="{ root: 'bg-default backdrop-blur-none' }"
+          :ui="{
+            root: 'bg-default rounded-b-xl backdrop-blur-none'
+          }"
           :title="title"
         >
           <template #title>
@@ -65,19 +93,22 @@
               <AppLogo class="shrink-0" aria-hidden="true" />
             </NuxtLink>
           </template>
+
           <template #right>
             <ULocaleSelect
               variant="ghost"
-              :ui="{ value: 'hidden', base: 'uppercase' }"
+              :ui="{ value: 'hidden', base: 'py-4' }"
               :label-key="'code'"
               :model-value="locale"
               :locales="Object.values(supportedLocales)"
+              :aria-label="localeLabel"
               @update:model-value="
                 (value: string) => setLocale(value as 'en' | 'ms' | 'id')
               "
             />
-            <UColorModeButton />
+            <UColorModeButton :aria-label="themeLabel" />
           </template>
+
           <template #body>
             <UNavigationMenu
               :items="navigationItems"
@@ -87,89 +118,38 @@
           </template>
         </UHeader>
       </UPageHeader>
-      
-      <UMain class="max-w-6xl sm:mx-2 lg:flex">
-        <div
-          class="absolute inset-0 -z-10 max-h-96 min-h-64 min-w-full bg-[url('header.webp')] bg-cover bg-center"
-          aria-hidden="true"
-        />
-        <UPageSection class="shrink-0 lg:order-first">
-          <UPageCTA
-            class="shrink-0"
-            :ui="{
-              root: 'flex flex-col items-center pt-6',
-              container:
-                'flex flex-col gap-8 px-6 py-12 sm:gap-16 sm:px-12 sm:py-24 lg:grid lg:px-16 lg:py-8',
-              description: 'mt-0',
-              links: 'flex-nowrap gap-x-2'
-            }"
-            title="Axel"
-            description="here, but not really"
-            :links="[
-              {
-                to: 'mailto:axelmychro@gmail.com',
-                target: '_blank',
-                icon: 'i-lucide-mail',
-                color: 'primary',
-                variant: 'subtle',
-                size: 'xl'
-              },
-              {
-                to: 'https://www.instagram.com/axelmychro',
-                target: '_blank',
-                icon: 'i-lucide-instagram',
-                color: 'primary',
-                variant: 'subtle',
-                size: 'xl'
-              },
-              {
-                to: 'https://www.linkedin.com/in/axelramadhan',
-                target: '_blank',
-                icon: 'i-lucide-linkedin',
-                color: 'primary',
-                variant: 'subtle',
-                size: 'xl'
-              },
-              {
-                to: 'https://github.com/axelmychro',
-                target: '_blank',
-                icon: 'i-lucide-github',
-                color: 'primary',
-                variant: 'subtle',
-                size: 'xl'
-              }
-            ]"
-          >
-            <template #top>
-              <NuxtImg
-                src="Wanderer.png"
-                quality="100"
-                width="256"
-                height="256"
-                class="bg-primary rounded-xl"
-              />
-            </template>
-          </UPageCTA>
-          <UPageCard />
-        </UPageSection>
-      </UMain>
-      <UFooter class="max-w-6xl sm:mx-2">
+
+      <UPageBody class="flex w-full justify-center space-y-0 pb-0">
+        <UMain class="grid w-full max-w-6xl gap-4 lg:grid-cols-[auto_1fr]">
+          <section class="space-y-4">
+            <NuxtPage />
+          </section>
+
+          <section class="space-y-4 lg:order-first">
+            <MyFace />
+            <UPageCard title="yo" description="gurt" class="mb-0" />
+          </section>
+        </UMain>
+      </UPageBody>
+
+      <UFooter class="mt-0">
         <template #left>
           <p class="text-muted text-sm">
-            &copy; {{ new Date().getFullYear() }} &bull; Axel
+            built with Nuxt UI and pain &bull; &copy;
+            {{ new Date().getFullYear() }}
           </p>
         </template>
         <template #right>
           <UButton
-            to="https://github.com/nuxt-ui-templates/starter"
+            to="https://github.com/axelmychro/Wanderer"
             target="_blank"
-            icon="i-simple-icons-github"
+            icon="i-devicon-nuxt"
             aria-label="GitHub"
-            color="neutral"
+            color="primary"
             variant="ghost"
           />
         </template>
       </UFooter>
-    </UPageBody>
+    </UPage>
   </UApp>
 </template>

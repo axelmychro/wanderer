@@ -9,23 +9,23 @@ export default defineNuxtConfig({
     '@nuxt/test-utils',
     '@nuxtjs/i18n'
   ],
+
+  ssr: true,
   devtools: {
     enabled: true
   },
 
-  nitro: {
-    preset: 'vercel'
-  },
-
   css: ['~/assets/css/main.css'],
-
-  compatibilityDate: '2025-01-15',
 
   build: {
     transpile: ['@nuxt/ui']
   },
 
-  ssr: true,
+  compatibilityDate: '2025-01-15',
+
+  nitro: {
+    preset: 'vercel'
+  },
 
   eslint: {
     config: {
@@ -60,5 +60,5 @@ export default defineNuxtConfig({
     defaultLocale: 'en'
   },
 
-  image: { quality: 50, format: ['webp'] }
+  image: { quality: 50, format: ['webp'] },
 })
