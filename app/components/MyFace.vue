@@ -20,14 +20,6 @@
         size: 'xl'
       },
       {
-        to: 'https://www.instagram.com/axelmychro',
-        target: '_blank',
-        icon: 'i-lucide-instagram',
-        color: 'primary',
-        variant: 'subtle',
-        size: 'xl'
-      },
-      {
         to: 'https://www.linkedin.com/in/axelramadhan',
         target: '_blank',
         icon: 'i-lucide-linkedin',
@@ -38,7 +30,23 @@
       {
         to: 'https://github.com/axelmychro',
         target: '_blank',
-        icon: 'i-lucide-github',
+        icon: 'i-mingcute-github-line',
+        color: 'primary',
+        variant: 'subtle',
+        size: 'xl'
+      },
+      {
+        to: 'https://www.instagram.com/axelmychro',
+        target: '_blank',
+        icon: 'i-mingcute-instagram-line',
+        color: 'primary',
+        variant: 'subtle',
+        size: 'xl'
+      },
+      {
+        to: 'https://open.spotify.com/user/31l6l7tuhvryqieeqlkghl34bjea?si=53329a1d41554e1c',
+        target: '_blank',
+        icon: 'i-mingcute-spotify-line',
         color: 'primary',
         variant: 'subtle',
         size: 'xl'
@@ -46,15 +54,17 @@
     ]"
   >
     <template #top>
-      <NuxtImg
-        src="Wanderer.png"
-        format="webp"
-        quality="100"
-        width="512"
-        height="512"
-        fit="contain"
-        class="bg-primary size-64 shrink-0 rounded-xl"
-      />
+      <NuxtLink>
+        <NuxtImg
+          src="Wanderer.png"
+          format="webp"
+          quality="100"
+          width="256"
+          height="256"
+          fit="cover"
+          class="bg-primary aspect-square rounded-xl"
+        />
+      </NuxtLink>
     </template>
   </UPageCTA>
 </template>

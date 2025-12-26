@@ -38,8 +38,8 @@
     description,
     ogTitle: title,
     ogDescription: description,
-    ogImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
-    twitterImage: 'https://ui.nuxt.com/assets/templates/nuxt/starter-light.png',
+    ogImage: '/header.webp',
+    twitterImage: '/header.webp',
     twitterCard: 'summary_large_image'
   })
 
@@ -69,13 +69,13 @@
 <template>
   <UApp :locale="uiLocale" :toaster="{ position: 'top-center' }">
     <div
-      class="absolute inset-0 -z-10 max-h-96 min-h-64 min-w-full bg-[url('/header.webp')] bg-cover bg-center"
+      class="absolute inset-0 -z-10 max-h-64 min-w-full bg-[url('/header.webp')] bg-cover bg-center lg:max-h-96"
       aria-hidden="true"
     />
 
     <UPage :ui="{ root: 'sm:mx-4' }">
       <UPageHeader
-        class="mb-32 lg:mb-64"
+        class="z-50 min-h-48 lg:min-h-64"
         :ui="{
           root: 'flex justify-center border-none py-0',
           container: 'w-full max-w-6xl'
@@ -119,7 +119,9 @@
         </UHeader>
       </UPageHeader>
 
-      <UPageBody class="flex w-full justify-center space-y-0 pb-0">
+      <UPageBody
+        class="flex min-h-[200vh] w-full justify-center space-y-0 pb-0"
+      >
         <UMain class="grid w-full max-w-6xl gap-4 lg:grid-cols-[auto_1fr]">
           <section class="space-y-4">
             <NuxtPage />
