@@ -1,10 +1,9 @@
 <script setup lang="ts">
   const route = useRoute()
-
-  const { tags } = usePosts()
+  const { badges } = useBadges()
 
   const badge = computed(() =>
-    post.value ? tags[post.value.badge as keyof typeof tags] : null
+    post.value ? badges[post.value.badge as keyof typeof badges] : null
   )
 
   const slug = computed(() =>

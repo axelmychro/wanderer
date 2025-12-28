@@ -1,5 +1,6 @@
 <script setup lang="ts">
-  const { filteredPosts } = usePosts()
+  const { filteredPosts } = usePostList()
+
 </script>
 
 <template>
@@ -9,14 +10,19 @@
     description="no post labeled as that found, for now.."
   />
   <UBlogPost
-    v-for="post in [...filteredPosts].reverse()"
+    v-for="post in filteredPosts"
     v-else
-    :key="post.to"
+    :key="post.path"
     orientation="horizontal"
     :ui="{
       body: post.image ? 'lg:pr-4' : 'lg:px-4',
       image: 'object-center'
     }"
-    v-bind="post"
+    :to="$localePath(post.path)"
+    :title="post.title"
+    :description="post.description"
+    :date="post.date"
+    :image="post.image"
+    :badge="post.badge"
   />
 </template>

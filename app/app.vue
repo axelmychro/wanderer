@@ -64,7 +64,7 @@
     return 'Toggle color mode'
   })
 
-  const { postLabels, activePostLabel } = usePosts()
+  const { postLabels, activePostLabel } = usePostList()
 
   const pageKey = computed(() => useRoute().fullPath)
 </script>

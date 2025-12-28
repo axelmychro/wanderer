@@ -1,5 +1,5 @@
 <script setup lang="ts">
-  const { filteredPosts } = usePosts()
+  const { filteredPosts } = usePostList()
 </script>
 
 <template>
@@ -11,7 +11,7 @@
   <UBlogPost
     v-for="post in [...filteredPosts].reverse()"
     v-else
-    :key="post.to"
+    :key="post.path"
     :ui="{
       header: 'hidden',
       body: 'p-2 sm:p-2',
@@ -20,6 +20,11 @@
       date: 'not-sm:text-xs',
       badge: 'not-sm:p-0 not-sm:px-1 not-sm:text-xs'
     }"
-    v-bind="post"
+    :to="$localePath(post.path)"
+    :title="post.title"
+    :description="post.description"
+    :date="post.date"
+    :image="post.image"
+    :badge="post.badge"
   />
 </template>

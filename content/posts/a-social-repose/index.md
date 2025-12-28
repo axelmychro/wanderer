@@ -6,7 +6,4 @@ title: a social repose
 description: how should this "good" cs student spend his free time?
 ---
 
-## markdowns!!
-
-your beautiful prose here  
-line breaks and angst welcome
+by making a blog, of course! _cough_ imagine using.. whatsapp channels in the big 25
