@@ -1,8 +1,5 @@
 export const usePostList = () => {
-  const activePostLabel = useState<string | null>(
-    'active-post-label',
-    () => null
-  )
+const activePostLabel = ref<string | null>(null)
 
   const { resolveBadge } = useBadges()
 

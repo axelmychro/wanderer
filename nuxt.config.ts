@@ -11,12 +11,22 @@ export default defineNuxtConfig({
     '@nuxt/content'
   ],
 
-  ssr: true,
+  ssr: false,
 
   pages: true,
 
   devtools: {
     enabled: true
+  },
+
+  vue: {
+    compilerOptions: {
+      isCustomElement: (tag) => tag.includes('-')
+    }
+  },
+
+  routeRules: {
+    '/posts/**': { ssr: false }
   },
 
   app: {

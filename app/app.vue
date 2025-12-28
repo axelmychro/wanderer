@@ -74,6 +74,7 @@
   const { postLabels, activePostLabel } = usePostList()
 
   const pageKey = computed(() => useRoute().fullPath)
+  
 </script>
 
 <template>
