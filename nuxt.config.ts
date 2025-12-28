@@ -7,7 +7,8 @@ export default defineNuxtConfig({
     '@nuxt/image',
     '@nuxt/scripts',
     '@nuxt/test-utils',
-    '@nuxtjs/i18n'
+    '@nuxtjs/i18n',
+    '@nuxt/content'
   ],
 
   ssr: true,
@@ -45,6 +46,8 @@ export default defineNuxtConfig({
     }
   },
 
+  image: { quality: 50, format: ['webp'] },
+
   i18n: {
     strategy: 'prefix',
     langDir: 'locales/',
@@ -68,5 +71,5 @@ export default defineNuxtConfig({
     defaultLocale: 'en'
   },
 
-  image: { quality: 50, format: ['webp'] }
+  pages: true
 })

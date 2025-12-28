@@ -15,7 +15,7 @@ export const usePosts = () => {
   const posts = ref([
     {
       badge: tags.other,
-      image: '/posts/hello_world/image.png',
+      image: '/posts/hello-world/image.png',
       date: '2025-12-25',
       title: 'hello world!',
       description: 'this is the first post, everything a work in progress~',
@@ -23,7 +23,7 @@ export const usePosts = () => {
     },
     {
       badge: tags.other,
-      image: '/posts/a_social_repose/image.png',
+      image: '/posts/a-social-repose/image.png',
       date: '2025-12-26',
       title: 'a social repose',
       description: 'how should this "good" cs student spend his free time?',
@@ -31,7 +31,7 @@ export const usePosts = () => {
     },
     {
       badge: tags.dev,
-      image: '/posts/my_unemployed_romance/image.png',
+      image: '/posts/my-unemployed-romance/image.png',
       date: '2025-12-27',
       title: 'my unemployed romance',
       description: 'i made something, alright? the aftermath is secondary..',
