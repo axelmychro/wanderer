@@ -1,7 +1,7 @@
 ---
 badge: other
 date: 2025-12-26
-image: /posts/a-social-repose/image.png
+image: /posts/a-social-repose/a-social-repose.png
 title: a social repose
 description: how should this "good" cs student spend his free time?
 ---
