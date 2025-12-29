@@ -8,6 +8,7 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/test-utils',
     '@nuxtjs/i18n',
+    '@nuxtjs/seo',
     '@nuxt/content'
   ],
 
@@ -19,11 +20,6 @@ export default defineNuxtConfig({
     enabled: true
   },
 
-  routeRules: {
-    '/posts/**': { prerender: false },
-    '/__nuxt_content/**': { prerender: false }
-  },
-
   app: {
     pageTransition: {
       name: 'page',
@@ -33,8 +29,20 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  site: {
+    url: 'https://www.wanderer.my.id',
+    name: 'Wanderer',
+    description: "Anywhere the wind blows doesn't really matter to me",
+    defaultLocale: 'en'
+  },
+
   build: {
     transpile: ['@nuxt/ui']
+  },
+
+  routeRules: {
+    '/posts/**': { prerender: false },
+    '/__nuxt_content/**': { prerender: false }
   },
 
   compatibilityDate: '2025-01-15',
@@ -79,9 +87,13 @@ export default defineNuxtConfig({
     defaultLocale: 'en'
   },
 
-  image: { quality: 50, format: ['webp'] },
-
   icon: {
     serverBundle: false
-  }
+  },
+
+  image: { quality: 50, format: ['webp'] },
+
+  seo: {
+    automaticDefaults: true
+  },
 })

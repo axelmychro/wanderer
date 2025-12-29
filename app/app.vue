@@ -33,17 +33,14 @@
   const description = "Anywhere the wind blows doesn't really matter to me"
 
   useSeoMeta({
-    title,
+    titleTemplate: `%s | ${title}`,
     description,
-    ogTitle: title,
-    ogDescription: description,
+
     ogSiteName: 'Wanderer',
+    ogType: 'website',
     ogImage: '/header.webp',
-    ogUrl: 'https://www.wanderer.my.id/en',
-    twitterImage: '/header.webp',
-    twitterCard: 'summary_large_image',
-    twitterTitle: title,
-    twitterDescription: description
+
+    twitterCard: 'summary_large_image'
   })
 
   const localePath = useLocalePath()

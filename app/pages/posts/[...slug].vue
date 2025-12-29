@@ -6,37 +6,31 @@
     post.value ? badges[post.value.badge as keyof typeof badges] : null
   )
 
-  const slug = computed(() =>
-    Array.isArray(route.params.slug)
-      ? route.params.slug.join('/')
-      : route.params.slug
+  const { data: post } = await useAsyncData(() =>
+    queryCollection('posts')
+      .where('path', '=', `/posts/${route.params.slug}`)
+      .first()
   )
 
-  const { data: post } = await useAsyncData(
-    () =>
-      queryCollection('posts')
-        .where('path', '=', `/posts/${slug.value}`)
-        .first(),
-    { server: true }
-  )
+  if (!post.value) {
+    throw createError({ statusCode: 404, statusMessage: 'Post not found' })
+  }
 
-  watchEffect(() => {
-    if (!post.value) return
+  const url = `https://www.wanderer.my.id${route.fullPath}`
 
-    useSeoMeta({
-      title: post.value.title,
-      description: post.value.description,
+  useSeoMeta({
+    title: post.value.title,
+    description: post.value.description,
 
-      ogTitle: post.value.title,
-      ogDescription: post.value.description,
-      ogType: 'article',
-      ogImage: post.value.image,
-      ogUrl: `https://www.wanderer.my.id/en/posts/${slug.value}`,
+    ogTitle: post.value.title,
+    ogDescription: post.value.description,
+    ogImage: post.value.image,
+    ogType: 'article',
+    ogUrl: url,
 
-      twitterTitle: post.value.title,
-      twitterDescription: post.value.description,
-      twitterImage: post.value.image
-    })
+    twitterTitle: post.value.title,
+    twitterDescription: post.value.description,
+    twitterImage: post.value.image
   })
 </script>
 

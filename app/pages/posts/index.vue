@@ -6,8 +6,8 @@
 <template>
   <UBlogPost
     v-if="filteredPosts.length <= 0"
-    title="uh oh"
-    description="no post labeled as that found, for now.."
+    title="Loading posts..."
+    description="Wait a bit, okay?"
   />
   <UBlogPost
     v-for="post in [...filteredPosts].reverse()"
