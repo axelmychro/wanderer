@@ -19,19 +19,31 @@
   const dir = computed(() => uiLocale.value.dir)
 
   useHead({
-    titleTemplate: (titleChunk) =>
-      titleChunk ? `${titleChunk} · eons adrift` : 'eons adrift',
-
     meta: [
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { property: 'og:site_name', content: 'Wanderer' },
-      { name: 'twitter:card', content: 'summary_large_image' }
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ],
     link: [{ rel: 'icon', href: '/favicon.ico' }],
     htmlAttrs: {
       lang,
       dir
     }
+  })
+
+  const title = 'Eons Adrift'
+  const description = "Anywhere the wind blows doesn't really matter to me"
+
+  useSeoMeta({
+    title,
+    description,
+    ogTitle: title,
+    ogDescription: description,
+    ogSiteName: 'Wanderer',
+    ogImage: '/header.webp',
+    ogUrl: 'https://www.wanderer.my.id/en',
+    twitterImage: '/header.webp',
+    twitterCard: 'summary_large_image',
+    twitterTitle: title,
+    twitterDescription: description
   })
 
   const localePath = useLocalePath()
