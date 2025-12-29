@@ -63,6 +63,7 @@
           height="256"
           fit="cover"
           class="bg-primary aspect-square rounded-xl"
+          alt="Profile"
         />
       </NuxtLink>
     </template>

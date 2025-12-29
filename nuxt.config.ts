@@ -11,7 +11,7 @@ export default defineNuxtConfig({
     '@nuxt/content'
   ],
 
-  ssr: false,
+  ssr: true,
 
   pages: true,
 
@@ -19,14 +19,9 @@ export default defineNuxtConfig({
     enabled: true
   },
 
-  vue: {
-    compilerOptions: {
-      isCustomElement: (tag) => tag.includes('-')
-    }
-  },
-
   routeRules: {
-    '/posts/**': { ssr: false }
+    '/posts/**': { prerender: false },
+    '/__nuxt_content/**': { prerender: false }
   },
 
   app: {
@@ -45,7 +40,10 @@ export default defineNuxtConfig({
   compatibilityDate: '2025-01-15',
 
   nitro: {
-    preset: 'vercel'
+    preset: 'vercel',
+    prerender: {
+      ignore: ['/posts', '/posts/**', '/__nuxt_content/**']
+    }
   },
 
   eslint: {
@@ -81,5 +79,9 @@ export default defineNuxtConfig({
     defaultLocale: 'en'
   },
 
-  image: { quality: 50, format: ['webp'] }
+  image: { quality: 50, format: ['webp'] },
+
+  icon: {
+    serverBundle: false
+  }
 })

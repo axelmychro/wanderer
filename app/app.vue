@@ -37,14 +37,16 @@
     description,
     ogTitle: title,
     ogDescription: description,
+    ogSiteName: 'Wanderer',
     ogImage: '/header.webp',
+    ogUrl: 'https://www.wanderer.my.id/en',
     twitterImage: '/header.webp',
-    twitterCard: 'summary_large_image'
+    twitterCard: 'summary_large_image',
+    twitterTitle: title,
+    twitterDescription: description
   })
 
   const localePath = useLocalePath()
-
-  const route = useRoute()
 
   const navigationItems = computed<NavigationMenuItem[]>(() => [
     {
@@ -74,7 +76,6 @@
   const { postLabels, activePostLabel } = usePostList()
 
   const pageKey = computed(() => useRoute().fullPath)
-  
 </script>
 
 <template>

@@ -20,7 +20,7 @@
     { server: true }
   )
 
-  onMounted(() => {
+  watchEffect(() => {
     if (!post.value) return
 
     useSeoMeta({
@@ -37,27 +37,21 @@
 </script>
 
 <template>
-  <ClientOnly>
-    <UBlogPost
-      v-if="post"
-      :badge="badge ?? undefined"
-      :image="post.image"
-      :date="post.date"
-      :title="post.title"
-      :description="post.description"
-      :ui="{
-        root: 'bg-default rounded-xl',
-        image: 'object-contain',
-        footer: 'px-4 sm:px-6'
-      }"
-    >
-      <template #footer>
-        <ContentRenderer :value="post" />
-      </template>
-    </UBlogPost>
-
-    <template #fallback>
-      <div>Loading...</div>
+  <UBlogPost
+    v-if="post"
+    :badge="badge ?? undefined"
+    :image="post.image"
+    :date="post.date"
+    :title="post.title"
+    :description="post.description"
+    :ui="{
+      root: 'bg-default rounded-xl',
+      image: 'object-contain',
+      footer: 'px-4 sm:px-6'
+    }"
+  >
+    <template #footer>
+      <ContentRenderer :value="post" />
     </template>
-  </ClientOnly>
+  </UBlogPost>
 </template>

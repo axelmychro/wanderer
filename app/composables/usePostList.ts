@@ -1,17 +1,18 @@
 export const usePostList = () => {
-const activePostLabel = ref<string | null>(null)
+  const activePostLabel = useState<string | null>(
+    'active-post-label',
+    () => null
+  )
 
   const { resolveBadge } = useBadges()
 
   const { data: posts } = useAsyncData(
-  'posts',
-  () => queryCollection('posts').order('date', 'DESC').all(),
-  {
-    server: true,
-    lazy: false
-  }
-)
-
+    'posts',
+    () => queryCollection('posts').order('date', 'DESC').all(),
+    {
+      server: false
+    }
+  )
 
   const enrichedPosts = computed(() => {
     if (!posts.value) return []
