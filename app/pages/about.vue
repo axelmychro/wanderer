@@ -19,7 +19,7 @@
     <p class="mt-2 text-base text-pretty">
       i'm interested in the frontend development, knows HTML, CSS, JS basic.
       built
-      <NuxtLink to="htpps://github.com/axelmychro/Axel-Ramadhan">
+      <NuxtLink to="https://github.com/axelmychro/Axel-Ramadhan">
         my portfolio
       </NuxtLink>
       with Vue and

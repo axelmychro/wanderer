@@ -16,9 +16,9 @@
       <UButton
         size="sm"
         variant="soft"
-        @click="toggleSilhouette = !toggleSilhouette"
-        :aria-pressed="toggleSilhouette"
         aria-controls="footer-image"
+        :aria-pressed="toggleSilhouette"
+        @click="toggleSilhouette = !toggleSilhouette"
       >
         Wanderer
       </UButton>

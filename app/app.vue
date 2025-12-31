@@ -1,5 +1,7 @@
 <script setup lang="ts">
   import type { NavigationMenuItem } from '@nuxt/ui'
+  import { siteConfig } from './data'
+
   const colorMode = useColorMode()
 
   useHead({
@@ -13,15 +15,14 @@
     }
   })
 
-  // const singleSourceOfTruth ... ?
-  const title = 'Eons Adrift'
-  const description = "anywhere the wind blows doesn't really matter to me"
+  const siteTitle = siteConfig.title
+  const siteDescription = siteConfig.description
 
   useSeoMeta({
-    titleTemplate: `%s | ${title}`,
-    description,
+    titleTemplate: `%s | ${siteTitle}`,
+    description: siteDescription,
 
-    ogSiteName: 'Wanderer',
+    ogSiteName: siteConfig.name,
     ogType: 'website',
     ogImage: '/header.webp',
 
@@ -79,7 +80,7 @@
             root: 'bg-default rounded-b-xl backdrop-blur-none',
             center: 'gap-4'
           }"
-          title="Wanderer"
+          :title="siteConfig.title"
         >
           <template #title>
             <NuxtLink to="/" aria-label="Eons Adrift, home">
@@ -115,7 +116,7 @@
             <NuxtPage />
           </section>
 
-          <section class="space-y-4 lg:order-first shrink-0">
+          <section class="shrink-0 space-y-4 lg:order-first">
             <MyFace class="animate-enter" />
 
             <div class="relative h-full">

@@ -1,3 +1,18 @@
+<script setup lang="ts">
+  import { profileConfig } from '~/data'
+  import type { ButtonProps } from '@nuxt/ui'
+
+  const styledLinks = computed<ButtonProps[]>(
+    () =>
+      profileConfig.links?.map((link) => ({
+        ...link,
+        target: '_blank',
+        color: 'primary',
+        variant: 'soft'
+      })) ?? []
+  )
+</script>
+
 <template>
   <UPageCTA
     :ui="{
@@ -8,36 +23,14 @@
       footer: 'mt-0',
       links: 'flex-nowrap gap-x-2'
     }"
-    title="Axel"
-    description="here, but not really"
-    :links="[
-      {
-        to: 'mailto:axelmychro@gmail.com',
-        target: '_blank',
-        icon: 'i-lucide-mail',
-        color: 'primary',
-        variant: 'soft'
-      },
-      {
-        to: 'https://www.linkedin.com/in/axelramadhan',
-        target: '_blank',
-        icon: 'i-lucide-linkedin',
-        color: 'primary',
-        variant: 'soft'
-      },
-      {
-        to: 'https://github.com/axelmychro',
-        target: '_blank',
-        icon: 'i-mingcute-github-line',
-        color: 'primary',
-        variant: 'soft'
-      }
-    ]"
+    :title="profileConfig.author"
+    :description="profileConfig.bio"
+    :links="styledLinks"
   >
     <template #top>
       <NuxtLink>
         <NuxtImg
-          src="Wanderer.png"
+          :src="profileConfig.avatar"
           format="webp"
           quality="100"
           width="224"

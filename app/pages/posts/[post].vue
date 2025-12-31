@@ -50,14 +50,40 @@
 
   const shareLinks = computed(() => {
     const canonicalUrl = seoUrl.value
-    const canicalTitle = seoTitle.value
+    const canonicalTitle = seoTitle.value
 
-    return {
-      shareToX: `https://twitter.com/intent/tweet?url=${encodeURIComponent(canonicalUrl)}&text=${encodeURIComponent(canicalTitle)}`,
-      shareToFacebook: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(canonicalUrl)}`,
-      shareToWhatsapp: `https://wa.me/?text=${encodeURIComponent(`${canicalTitle} ${canonicalUrl}`)}`,
-      shareToTelegram: `https://t.me/share/url?url=${encodeURIComponent(canonicalUrl)}&text=${encodeURIComponent(canicalTitle)}`
-    }
+    return [
+      {
+        key: 'x',
+        label: 'X',
+        icon: 'i-devicon-twitter',
+        to: `https://twitter.com/intent/tweet?url=${encodeURIComponent(canonicalUrl)}&text=${encodeURIComponent(canonicalTitle)}`
+      },
+      {
+        key: 'facebook',
+        label: 'Facebook',
+        icon: 'i-lucide-facebook',
+        to: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(canonicalUrl)}`
+      },
+      {
+        key: 'whatsapp',
+        label: 'WhatsApp',
+        icon: 'i-mingcute-whatsapp-line',
+        to: `https://wa.me/?text=${encodeURIComponent(`${canonicalTitle} ${canonicalUrl}`)}`
+      },
+      {
+        key: 'telegram',
+        label: 'Telegram',
+        icon: 'i-lucide-send',
+        to: `https://t.me/share/url?url=${encodeURIComponent(canonicalUrl)}&text=${encodeURIComponent(canonicalTitle)}`
+      },
+      {
+        key: 'linkedin',
+        label: 'LinkedIn',
+        icon: 'i-lucide-linkedin',
+        to: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalUrl)}`
+      }
+    ] as const
   })
 </script>
 
@@ -88,23 +114,29 @@
     <ContentRenderer :value="post" />
 
     <template #footer>
-      <UFieldGroup>
-        <UButton label="share ts!" color="neutral" variant="subtle" />
-        <UTooltip text="copy to clipboard">
-          <UButton color="neutral" variant="solid" icon="i-lucide-link" />
-        </UTooltip>
-      </UFieldGroup>
+      <div class="flex flex-wrap gap-2">
+        <UFieldGroup>
+          <UButton label="share ts!" color="neutral" variant="subtle" />
+          <UTooltip text="copy to clipboard">
+            <UButton color="neutral" variant="solid" icon="i-lucide-link" />
+          </UTooltip>
+        </UFieldGroup>
 
-      <UFieldGroup>
-        <UButton icon="i-lucide-facebook" color="neutral" variant="subtle" />
-        <UButton
-          icon="i-mingcute-whatsapp-line"
-          color="neutral"
-          variant="subtle"
-        />
-        <UButton icon="i-lucide-twitter" color="neutral" variant="subtle" />
-        <UButton icon="i-lucide-linkedin" color="neutral" variant="subtle" />
-      </UFieldGroup>
+        <UFieldGroup>
+          <UButton
+            v-for="link in shareLinks"
+            :key="link.key"
+            :to="link.to"
+            :icon="link.icon"
+            color="neutral"
+            variant="subtle"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="sr-only">{{ link.label }}</span>
+          </UButton>
+        </UFieldGroup>
+      </div>
     </template>
   </UCard>
 </template>

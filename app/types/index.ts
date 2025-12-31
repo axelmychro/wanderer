@@ -2,6 +2,7 @@ export type SiteConfig = {
   name: string
   lang: `${string}-${string}` | string
   title: string
+  description: string
 }
 export type ProfileConfig = {
   author: string
