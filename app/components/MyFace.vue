@@ -16,40 +16,35 @@
         target: '_blank',
         icon: 'i-lucide-mail',
         color: 'primary',
-        variant: 'soft',
-        size: 'xl'
+        variant: 'soft'
       },
       {
         to: 'https://www.linkedin.com/in/axelramadhan',
         target: '_blank',
         icon: 'i-lucide-linkedin',
         color: 'primary',
-        variant: 'soft',
-        size: 'xl'
+        variant: 'soft'
       },
       {
         to: 'https://github.com/axelmychro',
         target: '_blank',
         icon: 'i-mingcute-github-line',
         color: 'primary',
-        variant: 'soft',
-        size: 'xl'
+        variant: 'soft'
       },
       {
         to: 'https://www.instagram.com/axelmychro',
         target: '_blank',
         icon: 'i-mingcute-instagram-line',
         color: 'primary',
-        variant: 'soft',
-        size: 'xl'
+        variant: 'soft'
       },
       {
         to: 'https://open.spotify.com/user/31l6l7tuhvryqieeqlkghl34bjea?si=53329a1d41554e1c',
         target: '_blank',
         icon: 'i-mingcute-spotify-line',
         color: 'primary',
-        variant: 'soft',
-        size: 'xl'
+        variant: 'soft'
       }
     ]"
   >

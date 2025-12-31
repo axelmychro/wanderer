@@ -35,6 +35,10 @@
     {
       label: 'Posts',
       to: '/posts'
+    },
+    {
+      label: 'About',
+      to: '/about'
     }
   ])
 
@@ -49,8 +53,6 @@
 
   const { postLabels, activePostLabel } = usePostList()
 
-  const pageKey = computed(() => useRoute().fullPath)
-
   const hydrated = ref(false)
   onMounted(() => (hydrated.value = true))
 </script>
@@ -58,13 +60,13 @@
 <template>
   <UApp :toaster="{ position: 'top-center' }">
     <div
-      class="absolute inset-0 -z-10 max-h-64 min-w-full bg-[url('/header.webp')] bg-cover bg-center lg:max-h-96"
+      class="absolute inset-0 -z-10 max-h-64 min-w-full bg-[url('/header.webp')] bg-cover bg-center lg:max-h-128"
       aria-hidden="true"
     />
 
     <UPage :ui="{ root: 'sm:mx-4' }">
       <UPageHeader
-        class="z-50 min-h-48 lg:min-h-64"
+        class="z-50 min-h-48 lg:min-h-96"
         :ui="{
           root: 'flex justify-center border-none py-0',
           container: 'w-full max-w-6xl'
@@ -84,8 +86,13 @@
             </NuxtLink>
           </template>
 
-          <NuxtLink to="/" aria-label="Home">Home</NuxtLink>
-          <NuxtLink to="/posts" aria-label="Home">Posts</NuxtLink>
+          <NuxtLink
+            v-for="item in navigationItems"
+            :key="item.label"
+            :to="item.to"
+          >
+            {{ item.label }}
+          </NuxtLink>
 
           <template #right>
             <UColorModeButton :aria-label="themeLabel" />
@@ -102,13 +109,14 @@
       </UPageHeader>
 
       <UPageBody class="flex min-w-full justify-center">
-        <UMain class="bg grid w-full max-w-6xl gap-4 lg:grid-cols-[auto_1fr]">
-          <section :key="pageKey" class="page-shell space-y-4">
+        <UMain class="bg grid w-full max-w-6xl gap-4 lg:grid-cols-[1fr_3fr]">
+          <section>
             <NuxtPage />
           </section>
 
           <section class="space-y-4 lg:order-first">
-            <MyFace class="page-shell" />
+            <MyFace class="animate-enter" />
+
             <div class="relative h-full">
               <UPageCard
                 class="sticky top-4"
@@ -137,31 +145,14 @@
         </UMain>
       </UPageBody>
 
-      <UFooter class="mt-0">
-        <template #left>
-          <p class="text-muted text-sm">
-            built with Nuxt UI and pain &bull; &copy;
-            {{ new Date().getFullYear() }}
-          </p>
-        </template>
-        <template #right>
-          <UButton
-            to="https://github.com/axelmychro/Wanderer"
-            target="_blank"
-            icon="i-devicon-nuxt"
-            aria-label="GitHub"
-            color="primary"
-            variant="ghost"
-          />
-        </template>
-      </UFooter>
+      <MyFooter />
     </UPage>
   </UApp>
 </template>
 
 <style>
-  .page-shell {
-    animation: page-in 600ms cubic-bezier(0.22, 1, 0.36, 1) both;
+  .animate-enter {
+    animation: page-in 600ms cubic-bezier(0.22, 1, 0.33, 1) both;
   }
 
   @keyframes page-in {
