@@ -13,8 +13,9 @@
     }
   })
 
+  // const singleSourceOfTruth ... ?
   const title = 'Eons Adrift'
-  const description = "Anywhere the wind blows doesn't really matter to me"
+  const description = "anywhere the wind blows doesn't really matter to me"
 
   useSeoMeta({
     titleTemplate: `%s | ${title}`,
@@ -82,7 +83,7 @@
         >
           <template #title>
             <NuxtLink to="/" aria-label="Eons Adrift, home">
-              <AppLogo class="shrink-0" aria-hidden="true" />
+              <AppLogo class="" aria-hidden="true" />
             </NuxtLink>
           </template>
 
@@ -109,12 +110,12 @@
       </UPageHeader>
 
       <UPageBody class="flex min-w-full justify-center">
-        <UMain class="bg grid w-full max-w-6xl gap-4 lg:grid-cols-[1fr_3fr]">
+        <UMain class="bg grid w-full max-w-6xl gap-4 lg:grid-cols-[auto_1fr]">
           <section>
             <NuxtPage />
           </section>
 
-          <section class="space-y-4 lg:order-first">
+          <section class="space-y-4 lg:order-first shrink-0">
             <MyFace class="animate-enter" />
 
             <div class="relative h-full">

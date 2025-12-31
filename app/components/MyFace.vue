@@ -31,20 +31,6 @@
         icon: 'i-mingcute-github-line',
         color: 'primary',
         variant: 'soft'
-      },
-      {
-        to: 'https://www.instagram.com/axelmychro',
-        target: '_blank',
-        icon: 'i-mingcute-instagram-line',
-        color: 'primary',
-        variant: 'soft'
-      },
-      {
-        to: 'https://open.spotify.com/user/31l6l7tuhvryqieeqlkghl34bjea?si=53329a1d41554e1c',
-        target: '_blank',
-        icon: 'i-mingcute-spotify-line',
-        color: 'primary',
-        variant: 'soft'
       }
     ]"
   >
@@ -54,10 +40,9 @@
           src="Wanderer.png"
           format="webp"
           quality="100"
-          width="256"
-          height="256"
-          fit="cover"
-          class="bg-primary aspect-square rounded-xl"
+          width="224"
+          height="224"
+          class="bg-primary aspect-square rounded-sm object-cover"
           alt="Profile"
         />
       </NuxtLink>

@@ -62,12 +62,11 @@
 </script>
 
 <template>
-  <UCard v-if="post" :ui="{ root: 'bg-default rounded-xl' }">
+  <UCard v-if="post" :ui="{ root: 'bg-default rounded-lg' }">
     <template #header>
       <NuxtImg
         :src="post.image"
-        fit="contain"
-        class="pointer-events-none relative aspect-video w-full overflow-hidden"
+        class="pointer-events-none relative aspect-video w-full overflow-hidden object-contain"
       />
       <div class="flex min-w-0 flex-1 flex-col">
         <div class="mb-2 flex items-center gap-2">
