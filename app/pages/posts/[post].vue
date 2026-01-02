@@ -5,7 +5,7 @@ const routedPath = route.path
 const { data: post } = await useAsyncData(
   () => `post:${routedPath}`,
   () => queryCollection('posts').path(routedPath).first(),
-  { default: () => null }
+  { default: () => null },
 )
 
 if (import.meta.server && !post.value) {
@@ -14,12 +14,12 @@ if (import.meta.server && !post.value) {
 
 const { badges } = useBadges()
 const badge = computed(() =>
-  post.value ? badges[post.value.badge as keyof typeof badges] : null
+  post.value ? badges[post.value.badge as keyof typeof badges] : null,
 )
 
 const seoTitle = computed(() => post.value?.title || 'Untitled post')
 const seoDescription = computed(
-  () => post.value?.description || 'Undescribed post'
+  () => post.value?.description || 'Undescribed post',
 )
 const seoImage = computed(() => post.value?.image || '/header.webp')
 const seoUrl = computed(() => `https://www.wanderer.my.id${routedPath}`)
@@ -37,7 +37,7 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterImage: seoImage,
   twitterTitle: seoTitle,
-  twitterDescription: seoDescription
+  twitterDescription: seoDescription,
 })
 
 const formattedDate = computed(() =>
@@ -45,9 +45,9 @@ const formattedDate = computed(() =>
     ? new Intl.DateTimeFormat('en', {
         year: 'numeric',
         month: 'short',
-        day: 'numeric'
+        day: 'numeric',
       }).format(new Date(post.value.date))
-    : ''
+    : '',
 )
 
 const copyToClipboard = async () => {
@@ -56,7 +56,8 @@ const copyToClipboard = async () => {
   try {
     await navigator.clipboard.writeText(seoUrl.value)
     add({ title: 'Copied to clipboard!' })
-  } catch (err) {
+  }
+  catch (err) {
     add({ title: 'Failed to copy!' })
     console.error('Failed to copy:', err)
   }
@@ -71,32 +72,32 @@ const shareLinks = computed(() => {
       key: 'twitter',
       label: 'X',
       icon: 'i-devicon-twitter',
-      to: `https://twitter.com/intent/tweet?url=${encodeURIComponent(canonicalUrl)}&text=${encodeURIComponent(canonicalTitle)}`
+      to: `https://twitter.com/intent/tweet?url=${encodeURIComponent(canonicalUrl)}&text=${encodeURIComponent(canonicalTitle)}`,
     },
     {
       key: 'facebook',
       label: 'Facebook',
       icon: 'i-lucide-facebook',
-      to: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(canonicalUrl)}`
+      to: `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(canonicalUrl)}`,
     },
     {
       key: 'whatsapp',
       label: 'WhatsApp',
       icon: 'i-mingcute-whatsapp-line',
-      to: `https://wa.me/?text=${encodeURIComponent(`${canonicalTitle} ${canonicalUrl}`)}`
+      to: `https://wa.me/?text=${encodeURIComponent(`${canonicalTitle} ${canonicalUrl}`)}`,
     },
     {
       key: 'telegram',
       label: 'Telegram',
       icon: 'i-lucide-send',
-      to: `https://t.me/share/url?url=${encodeURIComponent(canonicalUrl)}&text=${encodeURIComponent(canonicalTitle)}`
+      to: `https://t.me/share/url?url=${encodeURIComponent(canonicalUrl)}&text=${encodeURIComponent(canonicalTitle)}`,
     },
     {
       key: 'linkedin',
       label: 'LinkedIn',
       icon: 'i-lucide-linkedin',
-      to: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalUrl)}`
-    }
+      to: `https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(canonicalUrl)}`,
+    },
   ] as const
 })
 </script>
@@ -124,7 +125,9 @@ const shareLinks = computed(() => {
         <h1 class="text-highlighted text-xl font-semibold text-pretty">
           {{ post.title }}
         </h1>
-        <p class="text-base text-pretty">{{ post.description }}</p>
+        <p class="text-base text-pretty">
+          {{ post.description }}
+        </p>
       </div>
     </template>
 

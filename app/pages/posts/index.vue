@@ -12,7 +12,7 @@ const { filteredPosts } = usePostList()
         title: 'not-sm:text-base',
         description: 'not-sm:text-sm',
         date: 'not-sm:text-xs',
-        badge: 'not-sm:p-0 not-sm:px-1 not-sm:text-xs'
+        badge: 'not-sm:p-0 not-sm:px-1 not-sm:text-xs',
       }"
       badge="???"
       :date="Date()"
@@ -28,7 +28,7 @@ const { filteredPosts } = usePostList()
         title: 'not-sm:text-base',
         description: 'not-sm:text-sm',
         date: 'not-sm:text-xs',
-        badge: 'not-sm:p-0 not-sm:px-1 not-sm:text-xs'
+        badge: 'not-sm:p-0 not-sm:px-1 not-sm:text-xs',
       }"
       :badge="post.badge"
       :date="post.date"

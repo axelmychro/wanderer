@@ -8,8 +8,8 @@ const styledLinks = computed<ButtonProps[]>(
       ...link,
       target: '_blank',
       color: 'primary',
-      variant: 'soft'
-    })) ?? []
+      variant: 'soft',
+    })) ?? [],
 )
 </script>
 
@@ -21,7 +21,7 @@ const styledLinks = computed<ButtonProps[]>(
         'flex flex-col gap-2 px-2 py-2 sm:gap-0 sm:px-2 sm:py-2 lg:flex lg:px-2 lg:py-2',
       description: 'mt-0',
       footer: 'mt-0',
-      links: 'flex-nowrap gap-x-2'
+      links: 'flex-nowrap gap-x-2',
     }"
     :title="profileConfig.author"
     :description="profileConfig.bio"

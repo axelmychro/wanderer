@@ -1,14 +1,4 @@
 {
-  "semi": false,
-  "singleQuote": true,
-  "jsxSingleQuote": true,
-  "trailingComma": "none",
-  "bracketSpacing": true,
-  "arrowParens": "avoid",
-  "printWidth": 100,
-  "endOfLine": "lf",
-  "vueIndentScriptAndStyle": false,
-
   "plugins": ["prettier-plugin-tailwindcss"],
   "tailwindAttributes": [":ui", "ui"]
 }

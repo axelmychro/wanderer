@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     '@nuxt/scripts',
     '@nuxt/test-utils',
     '@nuxtjs/seo',
-    '@nuxt/content'
+    '@nuxt/content',
   ],
 
   ssr: true,
@@ -19,26 +19,26 @@ export default defineNuxtConfig({
   app: {
     pageTransition: {
       name: 'page',
-      mode: 'default'
-    }
+      mode: 'default',
+    },
   },
 
   css: ['~/assets/css/main.css'],
 
   site: {
     url: 'https://www.wanderer.my.id',
-    name: 'Wanderer'
+    name: 'Wanderer',
   },
 
   colorMode: {
     classSuffix: '',
-    fallback: 'light'
+    fallback: 'light',
   },
 
   content: {
     experimental: {
-      nativeSqlite: true
-    }
+      nativeSqlite: true,
+    },
   },
 
   compatibilityDate: '2025-01-15',
@@ -46,21 +46,21 @@ export default defineNuxtConfig({
   nitro: {
     prerender: {
       crawlLinks: true,
-      routes: ['/']
-    }
+      routes: ['/'],
+    },
   },
 
   typescript: {
-    strict: true
+    strict: true,
   },
 
   icon: {
-    serverBundle: false
+    serverBundle: false,
   },
 
   image: { quality: 50, format: ['webp'] },
 
   seo: {
-    automaticDefaults: true
-  }
+    automaticDefaults: true,
+  },
 })

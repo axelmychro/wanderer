@@ -5,7 +5,7 @@ export const siteConfig: SiteConfig = {
   lang: 'en',
   title: 'Eons Adrift',
   description: 'anywhere the wind blows doesn\'t really matter to me',
-  image: '/header.webp'
+  image: '/header.webp',
 }
 export const profileConfig: ProfileConfig = {
   author: 'Axel',
@@ -14,15 +14,15 @@ export const profileConfig: ProfileConfig = {
   links: [
     {
       to: 'mailto:axelmychro@gmail.com',
-      icon: 'i-lucide-mail'
+      icon: 'i-lucide-mail',
     },
     {
       to: 'https://www.linkedin.com/in/axelramadhan',
-      icon: 'i-lucide-linkedin'
+      icon: 'i-lucide-linkedin',
     },
     {
       to: 'https://github.com/axelmychro',
-      icon: 'i-mingcute-github-line'
-    }
-  ]
+      icon: 'i-mingcute-github-line',
+    },
+  ],
 }

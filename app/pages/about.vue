@@ -1,6 +1,8 @@
 <template>
   <div class="bg-default rounded-lg p-4">
-    <h1 class="text-highlighted text-2xl font-semibold text-pretty">about</h1>
+    <h1 class="text-highlighted text-2xl font-semibold text-pretty">
+      about
+    </h1>
 
     <p class="mt-4 text-base text-pretty">
       so what is this blog all about? well, maybe you haven't read the footer just yet.

@@ -1,7 +1,7 @@
 export const usePostList = () => {
   const activePostLabel = useState<string | null>(
     'active-post-label',
-    () => null
+    () => null,
   )
 
   const { resolveBadge } = useBadges()
@@ -10,8 +10,8 @@ export const usePostList = () => {
     'posts',
     () => queryCollection('posts').order('date', 'DESC').all(),
     {
-      server: false
-    }
+      server: false,
+    },
   )
 
   const enrichedPosts = computed(() => {
@@ -19,7 +19,7 @@ export const usePostList = () => {
 
     return posts.value.map(post => ({
       ...post,
-      badge: resolveBadge(post.badge)
+      badge: resolveBadge(post.badge),
     }))
   })
 
@@ -27,7 +27,7 @@ export const usePostList = () => {
     if (!activePostLabel.value) return enrichedPosts.value
 
     return enrichedPosts.value.filter(
-      post => post.badge?.label === activePostLabel.value
+      post => post.badge?.label === activePostLabel.value,
     )
   })
 
@@ -41,13 +41,13 @@ export const usePostList = () => {
 
     return Array.from(map, ([label, count]) => ({
       label,
-      count
+      count,
     }))
   })
 
   return {
     filteredPosts,
     postLabels,
-    activePostLabel
+    activePostLabel,
   }
 }

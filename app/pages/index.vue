@@ -2,7 +2,7 @@
 const { filteredPosts } = usePostList()
 
 useSeoMeta({
-  title: 'Home'
+  title: 'Home',
 })
 </script>
 
@@ -13,7 +13,7 @@ useSeoMeta({
       orientation="horizontal"
       :ui="{
         body: 'lg:pr-4',
-        image: 'object-center'
+        image: 'object-center',
       }"
       badge="???"
       :date="Date()"
@@ -30,7 +30,7 @@ useSeoMeta({
       class="animate-enter"
       :ui="{
         body: post.image ? 'lg:pr-4' : 'lg:px-4',
-        image: 'object-center'
+        image: 'object-center',
       }"
       :badge="post.badge"
       :date="post.date"

@@ -9,6 +9,8 @@
       width="64"
       height="64"
     />
-    <h1 class="font-display text-xs sm:text-base">eons adrift</h1>
+    <h1 class="font-display text-xs sm:text-base">
+      eons adrift
+    </h1>
   </div>
 </template>

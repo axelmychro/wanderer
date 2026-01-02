@@ -6,10 +6,10 @@ const colorMode = useColorMode()
 
 useHead({
   meta: [
-    { name: 'viewport', content: 'width=device-width, initial-scale=1' }
+    { name: 'viewport', content: 'width=device-width, initial-scale=1' },
   ],
   htmlAttrs: { lang: 'en', dir: 'ltr' },
-  link: [{ rel: 'icon', href: '/favicon.ico' }]
+  link: [{ rel: 'icon', href: '/favicon.ico' }],
 })
 
 const siteTitle = siteConfig.title
@@ -26,28 +26,29 @@ useSeoMeta({
   twitterCard: 'summary_large_image',
   twitterImage: siteConfig.image,
   twitterTitle: siteConfig.title,
-  twitterDescription: siteConfig.description
+  twitterDescription: siteConfig.description,
 })
 
 const navigationItems = computed<NavigationMenuItem[]>(() => [
   {
     label: 'Home',
-    to: '/'
+    to: '/',
   },
   {
     label: 'Posts',
-    to: '/posts'
+    to: '/posts',
   },
   {
     label: 'About',
-    to: '/about'
-  }
+    to: '/about',
+  },
 ])
 
 const themeLabel = computed(() => {
   if (colorMode.preference === 'dark') {
     return 'Switch to light mode'
-  } else if (colorMode.preference === 'light') {
+  }
+  else if (colorMode.preference === 'light') {
     return 'Switch to dark mode'
   }
   return 'Toggle color mode'
@@ -71,14 +72,14 @@ onMounted(() => (hydrated.value = true))
         class="z-50 min-h-48 lg:min-h-96"
         :ui="{
           root: 'flex justify-center border-none py-0',
-          container: 'w-full max-w-6xl'
+          container: 'w-full max-w-6xl',
         }"
       >
         <UHeader
           mode="drawer"
           :ui="{
             root: 'bg-default rounded-b-xl backdrop-blur-none',
-            center: 'gap-4'
+            center: 'gap-4',
           }"
           :title="siteConfig.title"
         >
