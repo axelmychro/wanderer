@@ -46,6 +46,7 @@ export const usePostList = () => {
   })
 
   return {
+    posts,
     filteredPosts,
     postLabels,
     activePostLabel,

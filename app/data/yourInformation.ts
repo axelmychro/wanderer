@@ -1,4 +1,5 @@
-// Configure your informations here
+// Configure your informations here ^^
+// Image directory is relative to public folder
 export const siteConfig: SiteConfig = {
   name: 'Wanderer',
   lang: 'en',
@@ -15,18 +16,22 @@ export const profileConfig: ProfileConfig = {
   links: [
     {
       to: 'mailto:axelmychro@gmail.com',
+      label: 'Email',
       icon: 'i-lucide-mail',
     },
     {
       to: 'https://www.linkedin.com/in/axelramadhan',
+      label: 'LinkedIn',
       icon: 'i-simple-icons-linkedin',
     },
     {
       to: 'https://github.com/axelmychro',
+      label: 'GitHub',
       icon: 'i-simple-icons-github',
     },
     // {
-    //   to: 'https:/**.*/**',
+    //   to: 'https://**.*/**',
+    // label: '**',
     //   icon: 'i-**-*',
     // },
   ],

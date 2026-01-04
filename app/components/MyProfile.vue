@@ -1,16 +1,5 @@
 <script setup lang="ts">
 import { profileConfig } from '~/data/yourInformation'
-import type { ButtonProps } from '@nuxt/ui'
-
-const styledLinks = computed(
-  () =>
-    profileConfig.links?.map<ButtonProps>(link => ({
-      ...link,
-      target: '_blank',
-      color: 'primary',
-      variant: 'soft',
-    })) ?? [],
-)
 </script>
 
 <template>
@@ -21,11 +10,10 @@ const styledLinks = computed(
         'flex flex-col gap-2 px-2 py-2 sm:gap-0 sm:px-2 sm:py-2 lg:flex lg:px-2 lg:py-2',
       description: 'mt-0',
       footer: 'mt-0',
-      links: 'flex-nowrap gap-x-2',
+      links: 'gap-x-2 gap-y-2',
     }"
     :title="profileConfig.author"
     :description="profileConfig.bio"
-    :links="styledLinks"
   >
     <template #top>
       <NuxtLink to="/about">
@@ -39,6 +27,21 @@ const styledLinks = computed(
           alt="Profile"
         />
       </NuxtLink>
+    </template>
+
+    <template #links>
+      <UButton
+        v-for="link in profileConfig.links"
+        :key="link.label"
+        :to="link.to"
+        :icon="link.icon"
+        target="_blank"
+        rel="noopener noreferrer"
+        color="primary"
+        variant="soft"
+      >
+        <span class="sr-only">{{ link.label }}</span>
+      </UButton>
     </template>
   </UPageCTA>
 </template>

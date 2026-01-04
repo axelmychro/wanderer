@@ -40,15 +40,7 @@ useSeoMeta({
   twitterDescription: seoDescription,
 })
 
-const formattedDate = computed(() =>
-  post.value
-    ? new Intl.DateTimeFormat('en', {
-        year: 'numeric',
-        month: 'short',
-        day: 'numeric',
-      }).format(new Date(post.value.date))
-    : '',
-)
+const { formattedDate } = useDateFormatter(computed(() => post.value?.date))
 
 const copyToClipboard = async () => {
   const { add } = useToast()
@@ -63,7 +55,7 @@ const copyToClipboard = async () => {
   }
 }
 
-const shareLinks = computed(() => {
+const sharingLinks = computed(() => {
   const canonicalUrl = seoUrl.value
   const canonicalTitle = seoTitle.value
 
@@ -147,7 +139,7 @@ const shareLinks = computed(() => {
 
       <UFieldGroup>
         <UButton
-          v-for="link in shareLinks"
+          v-for="link in sharingLinks"
           :key="link.key"
           :to="link.to"
           :icon="link.icon"

@@ -4,10 +4,10 @@ onMounted(() => {
     window.twttr.widgets.load()
     return
   }
-  const script = document.createElement('script')
-  script.src = 'https://platform.twitter.com/widgets.js'
-  script.async = true
-  document.body.appendChild(script)
+  const twitterWidgetScript = document.createElement('script')
+  twitterWidgetScript.src = 'https://platform.twitter.com/widgets.js'
+  twitterWidgetScript.async = true
+  document.body.appendChild(twitterWidgetScript)
 })
 </script>
 
